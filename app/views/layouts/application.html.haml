@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %title Zack's Apicurious
+    = csrf_meta_tags
+    = stylesheet_link_tag 'application', media: 'all'
+    %link{href: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", rel: "stylesheet", integrity: "sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7", crossorigin: "anonymous"}
+    = javascript_include_tag 'application'
+  %body
+    = flash.each do |key, value|
+      .alert{ :class => "alert-#{key}" }
+        %button.close{ :data => { :dismiss => "alert" } } x
+        %strong
+          = value
+    =yield
