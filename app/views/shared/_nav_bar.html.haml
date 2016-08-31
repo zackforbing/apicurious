@@ -8,12 +8,11 @@
     %a.navbar-brand{href: "/"} Zack's ApiCurious
   .collapse.navbar-collapse#bs-example-navbar-collapse-1
     %ul.nav.navbar-nav
-      %li
-        -# = link_to 'Stores', stores_path
-      %li
-        -# = link_to 'Items', items_path
-      %li
-        -# = link_to 'Orders', orders_path
+      - if current_user
+        %li
+          = link_to 'Account', user_path(current_user)
+        %li
+          = link_to 'Activity', "#" #make this a dropdown to use with followed_user_activity and my_activity
     %ul.nav.navbar-nav.navbar-right
       - if current_user
         %li

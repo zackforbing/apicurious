@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   get "/auth/github", as: :github_login
   get "/auth/:provider/callback" => "sessions#create"
   get "/signout" => "sessions#destroy", as: :github_logout
+
+  resources :users, only: [:new, :show]
 end
- 
